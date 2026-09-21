@@ -8,7 +8,10 @@ const browserSync = require('browser-sync').create();
 
 function html() {
     return gulp.src('src/*.html')
-        .pipe(fileInclude())
+        .pipe(fileInclude({
+            prefix: '@@',
+            baseDir: 'src/app/components'
+        }))
         .pipe(gulp.dest('dist/'))
         .pipe(browserSync.stream())
 }
@@ -39,7 +42,7 @@ function serve() {
 }
 function watchFiles() {
     gulp.watch('src/*.html', html)
-    gulp.watch('src/app/scss/**/*.scss', scss)
+    gulp.watch('src/app/scss/*.scss', scss)
     gulp.watch('src/app/js/**/*.js', js)
     gulp.watch('src/app/imgs/**/*.*', images)
 }
