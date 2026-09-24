@@ -10,7 +10,7 @@ function html() {
     return gulp.src('src/*.html')
         .pipe(fileInclude({
             prefix: '@@',
-            baseDir: 'src/app/components'
+            basepath: 'src/app/components'
         }))
         .pipe(gulp.dest('dist/'))
         .pipe(browserSync.stream())
@@ -46,5 +46,15 @@ function watchFiles() {
     gulp.watch('src/app/js/**/*.js', js)
     gulp.watch('src/app/imgs/**/*.*', images)
 }
-exports.default = gulp.series(html, scss, js, images,
+function bootstrapCss() {
+    return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(gulp.dest('dist/css/'))
+        .pipe(browserSync.stream());
+}
+function bootstrapJs() {
+    return gulp.src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        .pipe(gulp.dest('dist/js/'))
+        .pipe(browserSync.stream());
+}
+exports.default = gulp.series(html, scss, js, images, bootstrapCss, bootstrapJs, 
     gulp.parallel(serve, watchFiles))
