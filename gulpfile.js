@@ -5,6 +5,7 @@ const cssnano = require('gulp-cssnano');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
+const rename = require('gulp-rename');
 
 function html() {
     return gulp.src('src/*.html')
@@ -13,26 +14,31 @@ function html() {
             basepath: 'src/app/components'
         }))
         .pipe(gulp.dest('dist/'))
-        .pipe(browserSync.stream())
+        .pipe(browserSync.stream());
 }
+
 function scss() {
-    return gulp.src('src/app/scss/**/*.scss')
+    return gulp.src('src/app/scss/main.scss')
         .pipe(sass())
         .pipe(cssnano())
+        .pipe(rename('index.min.css'))
         .pipe(gulp.dest('dist/css/'))
-        .pipe(browserSync.stream())
+        .pipe(browserSync.stream());
 }
+
 function js() {
     return gulp.src('src/app/js/**/*.js')
          .pipe(uglify())
          .pipe(gulp.dest('dist/js/'))
-         .pipe(browserSync.stream())
+         .pipe(browserSync.stream());
 }
+
 function images() {
-    return gulp.src('src/app/imgs/**/*.*')
-         .pipe(imagemin())
-         .pipe(gulp.dest('dist/imgs/'))
+    return gulp.src('src/app/imgs/**/*.*', { encoding: false })
+         // .pipe(imagemin())
+         .pipe(gulp.dest('dist/imgs/'));
 }
+
 function serve() {
     browserSync.init({
         server: {
@@ -40,21 +46,25 @@ function serve() {
         }
     });
 }
+
 function watchFiles() {
-    gulp.watch('src/*.html', html)
-    gulp.watch('src/app/scss/*.scss', scss)
-    gulp.watch('src/app/js/**/*.js', js)
-    gulp.watch('src/app/imgs/**/*.*', images)
+    gulp.watch('src/*.html', html);
+    gulp.watch('src/app/scss/**/*.scss', scss);
+    gulp.watch('src/app/js/**/*.js', js);
+    gulp.watch('src/app/imgs/**/*.*', images);
 }
+
 function bootstrapCss() {
     return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
         .pipe(gulp.dest('dist/css/'))
         .pipe(browserSync.stream());
 }
+
 function bootstrapJs() {
     return gulp.src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
         .pipe(gulp.dest('dist/js/'))
         .pipe(browserSync.stream());
 }
+
 exports.default = gulp.series(html, scss, js, images, bootstrapCss, bootstrapJs, 
-    gulp.parallel(serve, watchFiles))
+    gulp.parallel(serve, watchFiles));

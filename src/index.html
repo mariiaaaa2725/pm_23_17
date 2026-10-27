@@ -1,160 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Document</title>
+    @@include('head.html', { "title": "Mariia Sobetska - Resume" })
 </head>
 <body>
-    @@include('header.html')
-    
-    <div class="container mt-5 bg-white p-0">
-        <div class="bg-light text-center py-5">
-            <h1 class="fw-bold">
-                Hello. <span class="fw-normal">I'm</span> <span style="color: #ff9900;">Mariia Sobetska</span>
-            </h1>
-            <p class="text-secondary" style="letter-spacing: 3px;">
-                And I am an Applied Math student
-            </p>
+    <main class="resume-page">
+        @@include('header.html')
+
+        <div class="page-body">
+            @@include('about.html')
         </div>
 
-        <div class="row mt-5 px-5">
-            <div class="col-md-4 text-center">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Mariia Sobetska" class="img-fluid rounded-3 shadow-sm" style="width: 200px; height: 200px; object-fit: cover;">
-            </div>
+        @@include('contact.html')
 
-            <div class="col-md-8">
-                <div class="d-flex align-items-center mb-3">
-                    <h5 class="fw-bold bg-light rounded px-3 py-2 mb-0 me-3 d-inline-block" style="color: #ff9900;"><i class="bi bi-person-fill text-warning me-2"></i>ABOUT ME</h5>
-                    <hr class="border-warning border-2 opacity-100 w-75 m-0">
-                </div>
-                <p class="text-muted">
-                    I am a sophomore student at Lviv Polytechnic National University, majoring in Applied Mathematics. I have a strong passion for mathematics and its applications in various fields. My interests include data analysis, mathematical modeling, and problem-solving. I am eager to learn and grow in my field, and I am always looking for opportunities to apply my knowledge in real-world scenarios.
-                </p>
-                <p class="text-muted">
-                I also have experience working with data analytics tools like SQL and Tableau, and enjoy solving complex mathematical problems.
-                </p>
+        <div class="page-body">
+            <div class="row gx-5 gy-5">
+                @@include('sections.html')
             </div>
         </div>
+    </main>
 
-        <div class="row bg-light mt-3 px-5 py-3">
-            <div class="col-md-3 text-center">
-                <h5 class="fw-bold text-uppercase" style="color:#ff9900">
-                    Contact me
-                </h5>
-            </div>
-            <div class="col-md-3 text-center">
-                <p class="text-muted"><i class="bi bi-telephone-fill text-warning me-2"></i>
-                    +38 (067) 123-45-67
-                </p>
-            </div>
-            <div class="col-md-3 text-center">
-                <p class="text-muted"><i class="bi bi-instagram text-warning me-2"></i>
-                    <a href="https://www.instagram.com/mxcamh?vrfl=N3Q2aHRwZ3R4dW03&utm_source=qr" target="_blank">My Instagram</a>
-                </p>
-            </div>
-            <div class="col-md-3 text-center">
-                <p class="text-muted"><i class="bi bi-geo-alt-fill text-warning me-2"></i>
-                    Lviv, Ukraine
-                </p>
-            </div>
-        </div>
-
-         <div class="row mt-5 px-5 py-3">
-            <div class="col-md-4">
-                <div class="d-flex align-items-center mb-3">
-                    <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 mb-0 me-4 d-inline-block"><i class="bi bi-person-workspace text-warning me-2"></i>
-                        Work experience
-                    </h5>
-                    <hr class="border-warning border-2 opacity-100 w-25 m-0">
-                </div>
-                <p >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, vel ipsam! Autem dolorem reiciendis repellendus placeat rerum saepe illo, unde iure cumque sed minus, obcaecati error necessitatibus? Sit corporis blanditiis, quas maiores repellat magnam est?
-                </p>
-            </div>
-
-            <div class="col-md-4">
-                <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 d-inline-block"><i class="bi bi-mortarboard text-warning me-2"></i>
-                   My education
-                </h5>
-                <p class="text-muted">
-                    I am currently pursuing a degree in Applied Mathematics at Lviv Polytechnic National University. My coursework has provided me with a solid foundation in mathematical theory, as well as practical skills in data analysis and problem-solving. I am committed to continuing my education and expanding my knowledge in the field of mathematics.
-                </p>
-            </div>
-
-            <div class="col-md-4">
-                <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 d-inline-block"><i class="bi bi-person-check-fill text-warning me-2"></i>
-                    References
-                </h5>
-                <p class="text-muted">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi accusantium architecto nihil vitae, provident dolore excepturi veritatis adipisci laudantium nam asperiores. Autem nulla asperiores deleniti laudantium alias eos, quod unde.
-                </p>
-            </div>
-        </div>
-
-         <div class="row mt-5 px-5">
-            <div class="col-md-4">
-                <div class="d-flex align-items-center mb-3">
-                    <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 mb-0 me-4 d-inline-block"><i class="bi bi-award text-warning me-2"></i>
-                        Awards
-                    </h5>
-                    <hr class="border-warning border-2 opacity-100 w-50 m-0">
-                </div>
-                <p class="text-muted">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam exercitationem sit obcaecati, neque eos illo eveniet sequi esse impedit? Ex neque fugiat quibusdam nostrum esse qui atque nesciunt at sed.
-                </p>
-            </div>
-
-            <div class="col-md-4">
-                <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 d-inline-block"><i class="bi bi-tools text-warning me-2"></i>
-                    My skills
-                </h5>
-                
-                <div class="mb-3 mt-4">
-                    <span class="fw-bold small">C++ & C#</span>
-                    <div class="progress mt-1" style="height: 6px;">
-                       <div class="progress-bar bg-warning" role="progressbar" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="mb-3 mt-4">
-                    <span class="fw-bold small">SQL & Tableau</span>
-                    <div class="progress mt-1" style="height: 6px;">
-                       <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="mb-3 mt-4">
-                    <span class="fw-bold small">HTML & CSS</span>
-                    <div class="progress mt-1" style="height: 6px;">
-                       <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                 <h5 class="fw-bold text-uppercase bg-light rounded px-3 py-2 d-inline-block"><i class="bi bi-translate text-warning me-2"></i>
-                    Languages
-                </h5>
-                <ul class="list-group list-group-flush mt-4">
-                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 bg-transparent">
-                        <span class="fw-bold small">Ukrainian</span>
-                        <span class="badge rounded-pill bg-warning text-dark">Native</span>
-                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 bg-transparent">
-                        <span class="fw-bold small">English</span>
-                         <span class="badge rounded-pill bg-warning text-dark">IELTS Prep</span>
-                    </li>
-                </ul>
-            </div>
-
-         </div>
-        
-    </div> 
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
     @@include('footer.html')
 </body>
 </html>
