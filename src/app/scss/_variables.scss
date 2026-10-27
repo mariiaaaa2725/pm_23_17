@@ -1,0 +1,20 @@
+// Colors (sampled from the teacher's pattern)
+$primary-color: #ff4a01;
+$bg-light: #efefef;
+$page-bg: #e2e2e2;
+$line-gray: #d9d9d9;
+$track-gray: #d3d3d3;
+
+// Fonts
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Lato', sans-serif;
+
+// Sizes
+$photo-size: 190px;
+$content-padding: 4rem;
+$timeline-gap: 1.5rem;
+
+// Bootstrap's .bg-light is too dark by default in your old file; override it
+.bg-light { background-color: $bg-light !important; }
+
+.text-orange { color: $primary-color; }
